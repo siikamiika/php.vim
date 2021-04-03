@@ -682,34 +682,34 @@ syn case match
 if version >= 704
   if b:php_version_id >= 70300
     " @begin phpHereDoc
-    SynFold syn region phpHereDoc matchgroup=Delimiter start="\(<<<\)\@3<=\s*\z(\I\i*\)$" end="^\s*\z1\>" contained contains=@Spell,phpIdentifier,phpIdentifierSimply,phpIdentifierComplex,phpSpecialChar,phpMethodsVar,phpStrEsc keepend extend
-    SynFold syn region phpHereDoc matchgroup=Delimiter start=+\(<<<\)\@3<=\s*"\z(\I\i*\)"$+ end="^\s*\z1\>" contained contains=@Spell,phpIdentifier,phpIdentifierSimply,phpIdentifierComplex,phpSpecialChar,phpMethodsVar,phpStrEsc keepend extend
+    SynFold syn region phpHereDoc matchgroup=Delimiter start="\(<<<\)\z(\I\i*\)$" end="^\s*\z1\>" contained contains=@Spell,phpIdentifier,phpIdentifierSimply,phpIdentifierComplex,phpSpecialChar,phpMethodsVar,phpStrEsc keepend extend
+    SynFold syn region phpHereDoc matchgroup=Delimiter start=+\(<<<\)"\z(\I\i*\)"$+ end="^\s*\z1\>" contained contains=@Spell,phpIdentifier,phpIdentifierSimply,phpIdentifierComplex,phpSpecialChar,phpMethodsVar,phpStrEsc keepend extend
     " including HTML,JavaScript,SQL if enabled via options
     if (exists("php_html_in_heredoc") && php_html_in_heredoc)
-      SynFold syn region phpHereDoc matchgroup=Delimiter start="\(<<<\)\@3<=\s*\z(\(\I\i*\)\=\(html\)\c\(\i*\)\)$" end="^\s*\z1\>"  contained contains=@htmlTop,phpIdentifier,phpIdentifierSimply,phpIdentifierComplex,phpSpecialChar,phpMethodsVar,phpStrEsc keepend extend
-      SynFold syn region phpHereDoc matchgroup=Delimiter start="\(<<<\)\@3<=\s*\z(\(\I\i*\)\=\(javascript\)\c\(\i*\)\)$" end="^\s*\z1\>"  contained contains=@htmlJavascript,phpIdentifierSimply,phpIdentifier,phpIdentifierComplex,phpSpecialChar,phpMethodsVar,phpStrEsc keepend extend
+      SynFold syn region phpHereDoc matchgroup=Delimiter start="\(<<<\)\z(\(\I\i*\)\=\(html\)\c\(\i*\)\)$" end="^\s*\z1\>"  contained contains=@htmlTop,phpIdentifier,phpIdentifierSimply,phpIdentifierComplex,phpSpecialChar,phpMethodsVar,phpStrEsc keepend extend
+      SynFold syn region phpHereDoc matchgroup=Delimiter start="\(<<<\)\z(\(\I\i*\)\=\(javascript\)\c\(\i*\)\)$" end="^\s*\z1\>"  contained contains=@htmlJavascript,phpIdentifierSimply,phpIdentifier,phpIdentifierComplex,phpSpecialChar,phpMethodsVar,phpStrEsc keepend extend
     endif
     if (exists("php_sql_heredoc") && php_sql_heredoc)
-      SynFold syn region phpHereDoc matchgroup=Delimiter start="\(<<<\)\@3<=\s*\z(\(\I\i*\)\=\(sql\)\c\(\i*\)\)$" end="^\s*\z1\>" contained contains=@sqlTop,phpIdentifier,phpIdentifierSimply,phpIdentifierComplex,phpSpecialChar,phpMethodsVar,phpStrEsc keepend extend
+      SynFold syn region phpHereDoc matchgroup=Delimiter start="\(<<<\)\z(\(\I\i*\)\=\(sql\)\c\(\i*\)\)$" end="^\s*\z1\>" contained contains=@sqlTop,phpIdentifier,phpIdentifierSimply,phpIdentifierComplex,phpSpecialChar,phpMethodsVar,phpStrEsc keepend extend
     endif
     if (exists("php_xml_heredoc") && php_xml_heredoc)
-      SynFold syn region phpHereDoc matchgroup=Delimiter start="\(<<<\)\@3<=\s*\z(\(\I\i*\)\=\(xml\)\c\(\i*\)\)$" end="^\s*\z1\>" contained contains=@xmlTop,phpIdentifier,phpIdentifierSimply,phpIdentifierComplex,phpSpecialChar,phpMethodsVar,phpStrEsc keepend extend
+      SynFold syn region phpHereDoc matchgroup=Delimiter start="\(<<<\)\z(\(\I\i*\)\=\(xml\)\c\(\i*\)\)$" end="^\s*\z1\>" contained contains=@xmlTop,phpIdentifier,phpIdentifierSimply,phpIdentifierComplex,phpSpecialChar,phpMethodsVar,phpStrEsc keepend extend
     endif
     " @end phpHereDoc
   else
     " @begin phpHereDoc
-    SynFold syn region phpHereDoc matchgroup=Delimiter start="\(<<<\)\@3<=\s*\z(\I\i*\)$" end="^\z1\(;\=$\)\@=" contained contains=@Spell,phpIdentifier,phpIdentifierSimply,phpIdentifierComplex,phpSpecialChar,phpMethodsVar,phpStrEsc keepend extend
-    SynFold syn region phpHereDoc matchgroup=Delimiter start=+\(<<<\)\@3<=\s*"\z(\I\i*\)"$+ end="^\z1\(;\=$\)\@=" contained contains=@Spell,phpIdentifier,phpIdentifierSimply,phpIdentifierComplex,phpSpecialChar,phpMethodsVar,phpStrEsc keepend extend
+    SynFold syn region phpHereDoc matchgroup=Delimiter start="\(<<<\)\z(\I\i*\)$" end="^\z1\(;\=$\)\@=" contained contains=@Spell,phpIdentifier,phpIdentifierSimply,phpIdentifierComplex,phpSpecialChar,phpMethodsVar,phpStrEsc keepend extend
+    SynFold syn region phpHereDoc matchgroup=Delimiter start=+\(<<<\)"\z(\I\i*\)"$+ end="^\z1\(;\=$\)\@=" contained contains=@Spell,phpIdentifier,phpIdentifierSimply,phpIdentifierComplex,phpSpecialChar,phpMethodsVar,phpStrEsc keepend extend
     " including HTML,JavaScript,SQL if enabled via options
     if (exists("php_html_in_heredoc") && php_html_in_heredoc)
-      SynFold syn region phpHereDoc matchgroup=Delimiter start="\(<<<\)\@3<=\s*\z(\(\I\i*\)\=\(html\)\c\(\i*\)\)$" end="^\z1\(;\=$\)\@="  contained contains=@htmlTop,phpIdentifier,phpIdentifierSimply,phpIdentifierComplex,phpSpecialChar,phpMethodsVar,phpStrEsc keepend extend
-      SynFold syn region phpHereDoc matchgroup=Delimiter start="\(<<<\)\@3<=\s*\z(\(\I\i*\)\=\(javascript\)\c\(\i*\)\)$" end="^\z1\(;\=$\)\@="  contained contains=@htmlJavascript,phpIdentifierSimply,phpIdentifier,phpIdentifierComplex,phpSpecialChar,phpMethodsVar,phpStrEsc keepend extend
+      SynFold syn region phpHereDoc matchgroup=Delimiter start="\(<<<\)\z(\(\I\i*\)\=\(html\)\c\(\i*\)\)$" end="^\z1\(;\=$\)\@="  contained contains=@htmlTop,phpIdentifier,phpIdentifierSimply,phpIdentifierComplex,phpSpecialChar,phpMethodsVar,phpStrEsc keepend extend
+      SynFold syn region phpHereDoc matchgroup=Delimiter start="\(<<<\)\z(\(\I\i*\)\=\(javascript\)\c\(\i*\)\)$" end="^\z1\(;\=$\)\@="  contained contains=@htmlJavascript,phpIdentifierSimply,phpIdentifier,phpIdentifierComplex,phpSpecialChar,phpMethodsVar,phpStrEsc keepend extend
     endif
     if (exists("php_sql_heredoc") && php_sql_heredoc)
-      SynFold syn region phpHereDoc matchgroup=Delimiter start="\(<<<\)\@3<=\s*\z(\(\I\i*\)\=\(sql\)\c\(\i*\)\)$" end="^\z1\(;\=$\)\@=" contained contains=@sqlTop,phpIdentifier,phpIdentifierSimply,phpIdentifierComplex,phpSpecialChar,phpMethodsVar,phpStrEsc keepend extend
+      SynFold syn region phpHereDoc matchgroup=Delimiter start="\(<<<\)\z(\(\I\i*\)\=\(sql\)\c\(\i*\)\)$" end="^\z1\(;\=$\)\@=" contained contains=@sqlTop,phpIdentifier,phpIdentifierSimply,phpIdentifierComplex,phpSpecialChar,phpMethodsVar,phpStrEsc keepend extend
     endif
     if (exists("php_xml_heredoc") && php_xml_heredoc)
-      SynFold syn region phpHereDoc matchgroup=Delimiter start="\(<<<\)\@3<=\s*\z(\(\I\i*\)\=\(xml\)\c\(\i*\)\)$" end="^\z1\(;\=$\)\@=" contained contains=@xmlTop,phpIdentifier,phpIdentifierSimply,phpIdentifierComplex,phpSpecialChar,phpMethodsVar,phpStrEsc keepend extend
+      SynFold syn region phpHereDoc matchgroup=Delimiter start="\(<<<\)\z(\(\I\i*\)\=\(xml\)\c\(\i*\)\)$" end="^\z1\(;\=$\)\@=" contained contains=@xmlTop,phpIdentifier,phpIdentifierSimply,phpIdentifierComplex,phpSpecialChar,phpMethodsVar,phpStrEsc keepend extend
     endif
   " @end phpHereDoc
   endif
@@ -753,32 +753,32 @@ endif
 if version >= 704
   if b:php_version_id >= 70300
   " @begin phpNowDoc
-    SynFold syn region phpNowDoc matchgroup=Delimiter start=+\(<<<\)\@3<=\s*'\z(\I\i*\)'$+ end="^\s*\z1\>" contained keepend extend
+    SynFold syn region phpNowDoc matchgroup=Delimiter start=+\(<<<\)'\z(\I\i*\)'$+ end="^\s*\z1\>" contained keepend extend
     " including HTML,JavaScript,SQL if enabled via options
     if (exists("php_html_in_nowdoc") && php_html_in_nowdoc)
-      SynFold syn region phpNowDoc matchgroup=Delimiter start=+\(<<<\)\@3<=\s*'\z(\(\I\i*\)\=\(html\)\c\(\i*\)\)'$+ end="^\s*\z1\>" contained contains=@htmlTop,phpIdentifier,phpIdentifierSimply,phpIdentifierComplex,phpSpecialChar,phpMethodsVar,phpStrEsc keepend extend
-      SynFold syn region phpNowDoc matchgroup=Delimiter start=+\(<<<\)\@3<=\s*'\z(\(\I\i*\)\=\(javascript\)\c\(\i*\)\)'$+ end="^\s*\z1\>" contained contains=@htmlJavascript,phpIdentifier,phpIdentifierSimply,phpIdentifierComplex,phpSpecialChar,phpMethodsVar,phpStrEsc keepend extend
+      SynFold syn region phpNowDoc matchgroup=Delimiter start=+\(<<<\)'\z(\(\I\i*\)\=\(html\)\c\(\i*\)\)'$+ end="^\s*\z1\>" contained contains=@htmlTop,phpIdentifier,phpIdentifierSimply,phpIdentifierComplex,phpSpecialChar,phpMethodsVar,phpStrEsc keepend extend
+      SynFold syn region phpNowDoc matchgroup=Delimiter start=+\(<<<\)'\z(\(\I\i*\)\=\(javascript\)\c\(\i*\)\)'$+ end="^\s*\z1\>" contained contains=@htmlJavascript,phpIdentifier,phpIdentifierSimply,phpIdentifierComplex,phpSpecialChar,phpMethodsVar,phpStrEsc keepend extend
     endif
     if (exists("php_sql_nowdoc") && php_sql_nowdoc)
-      SynFold syn region phpNowDoc matchgroup=Delimiter start=+\(<<<\)\@3<=\s*'\z(\(\I\i*\)\=\(sql\)\c\(\i*\)\)'$+ end="^\s*\z1\>" contained contains=@sqlTop,phpIdentifier,phpIdentifierSimply,phpIdentifierComplex,phpSpecialChar,phpMethodsVar,phpStrEsc keepend extend
+      SynFold syn region phpNowDoc matchgroup=Delimiter start=+\(<<<\)'\z(\(\I\i*\)\=\(sql\)\c\(\i*\)\)'$+ end="^\s*\z1\>" contained contains=@sqlTop,phpIdentifier,phpIdentifierSimply,phpIdentifierComplex,phpSpecialChar,phpMethodsVar,phpStrEsc keepend extend
     endif
     if (exists("php_xml_nowdoc") && php_xml_nowdoc)
-      SynFold syn region phpNowDoc matchgroup=Delimiter start=+\(<<<\)\@3<=\s*'\z(\(\I\i*\)\=\(xml\)\c\(\i*\)\)'$+ end="^\s*\z1\>" contained contains=@xmlTop,phpIdentifier,phpIdentifierSimply,phpIdentifierComplex,phpSpecialChar,phpMethodsVar,phpStrEsc keepend extend
+      SynFold syn region phpNowDoc matchgroup=Delimiter start=+\(<<<\)'\z(\(\I\i*\)\=\(xml\)\c\(\i*\)\)'$+ end="^\s*\z1\>" contained contains=@xmlTop,phpIdentifier,phpIdentifierSimply,phpIdentifierComplex,phpSpecialChar,phpMethodsVar,phpStrEsc keepend extend
     endif
   " @end phpNowDoc
   else
     " @begin phpNowDoc
-    SynFold syn region phpNowDoc matchgroup=Delimiter start=+\(<<<\)\@3<=\s*'\z(\I\i*\)'$+ end="^\z1\(;\=$\)\@=" contained keepend extend
+    SynFold syn region phpNowDoc matchgroup=Delimiter start=+\(<<<\)'\z(\I\i*\)'$+ end="^\z1\(;\=$\)\@=" contained keepend extend
     " including HTML,JavaScript,SQL if enabled via options
     if (exists("php_html_in_nowdoc") && php_html_in_nowdoc)
-      SynFold syn region phpNowDoc matchgroup=Delimiter start=+\(<<<\)\@3<=\s*'\z(\(\I\i*\)\=\(html\)\c\(\i*\)\)'$+ end="^\z1\(;\=$\)\@=" contained contains=@htmlTop,phpIdentifier,phpIdentifierSimply,phpIdentifierComplex,phpSpecialChar,phpMethodsVar,phpStrEsc keepend extend
-      SynFold syn region phpNowDoc matchgroup=Delimiter start=+\(<<<\)\@3<=\s*'\z(\(\I\i*\)\=\(javascript\)\c\(\i*\)\)'$+ end="^\z1\(;\=$\)\@=" contained contains=@htmlJavascript,phpIdentifier,phpIdentifierSimply,phpIdentifierComplex,phpSpecialChar,phpMethodsVar,phpStrEsc keepend extend
+      SynFold syn region phpNowDoc matchgroup=Delimiter start=+\(<<<\)'\z(\(\I\i*\)\=\(html\)\c\(\i*\)\)'$+ end="^\z1\(;\=$\)\@=" contained contains=@htmlTop,phpIdentifier,phpIdentifierSimply,phpIdentifierComplex,phpSpecialChar,phpMethodsVar,phpStrEsc keepend extend
+      SynFold syn region phpNowDoc matchgroup=Delimiter start=+\(<<<\)'\z(\(\I\i*\)\=\(javascript\)\c\(\i*\)\)'$+ end="^\z1\(;\=$\)\@=" contained contains=@htmlJavascript,phpIdentifier,phpIdentifierSimply,phpIdentifierComplex,phpSpecialChar,phpMethodsVar,phpStrEsc keepend extend
     endif
     if (exists("php_sql_nowdoc") && php_sql_nowdoc)
-      SynFold syn region phpNowDoc matchgroup=Delimiter start=+\(<<<\)\@3<=\s*'\z(\(\I\i*\)\=\(sql\)\c\(\i*\)\)'$+ end="^\z1\(;\=$\)\@=" contained contains=@sqlTop,phpIdentifier,phpIdentifierSimply,phpIdentifierComplex,phpSpecialChar,phpMethodsVar,phpStrEsc keepend extend
+      SynFold syn region phpNowDoc matchgroup=Delimiter start=+\(<<<\)'\z(\(\I\i*\)\=\(sql\)\c\(\i*\)\)'$+ end="^\z1\(;\=$\)\@=" contained contains=@sqlTop,phpIdentifier,phpIdentifierSimply,phpIdentifierComplex,phpSpecialChar,phpMethodsVar,phpStrEsc keepend extend
     endif
     if (exists("php_xml_nowdoc") && php_xml_nowdoc)
-      SynFold syn region phpNowDoc matchgroup=Delimiter start=+\(<<<\)\@3<=\s*'\z(\(\I\i*\)\=\(xml\)\c\(\i*\)\)'$+ end="^\z1\(;\=$\)\@=" contained contains=@xmlTop,phpIdentifier,phpIdentifierSimply,phpIdentifierComplex,phpSpecialChar,phpMethodsVar,phpStrEsc keepend extend
+      SynFold syn region phpNowDoc matchgroup=Delimiter start=+\(<<<\)'\z(\(\I\i*\)\=\(xml\)\c\(\i*\)\)'$+ end="^\z1\(;\=$\)\@=" contained contains=@xmlTop,phpIdentifier,phpIdentifierSimply,phpIdentifierComplex,phpSpecialChar,phpMethodsVar,phpStrEsc keepend extend
     endif
     " @end phpNowDoc
   endif
