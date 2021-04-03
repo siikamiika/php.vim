@@ -833,7 +833,7 @@ else
 endif
 
 " Static classes
-syn match phpStaticClasses "\v\h\w+(::)@=" contained display
+syn match phpStaticClasses "\h\w\+::" contained display
 
 " Class name
 syn keyword phpKeyword class contained
